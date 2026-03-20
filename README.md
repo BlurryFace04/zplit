@@ -4,6 +4,10 @@ A Splitwise-style expense splitter built for Zcash (ZEC). Track shared expenses,
 
 **Live App:** [zplit-9b133.web.app](https://zplit-9b133.web.app)
 
+**Demo Video:** [Watch on YouTube](https://youtu.be/2mPLIe_NYAo)
+
+[![Zplit Demo](https://img.youtube.com/vi/2mPLIe_NYAo/maxresdefault.jpg)](https://youtu.be/2mPLIe_NYAo)
+
 ## Features
 
 - **Group expense tracking** — Create groups, add members via invite links, and track shared expenses

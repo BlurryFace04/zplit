@@ -45,7 +45,7 @@ cp .env.example .env
 ### Firebase Setup
 
 1. Create a Firebase project at [console.firebase.google.com](https://console.firebase.google.com)
-2. Enable **Firestore Database** (start in test mode or configure rules)
+2. Enable **Firestore Database**
 3. Enable **Authentication** → **Anonymous** sign-in
 4. Register a web app and copy the config
 5. Fill in your `.env` file:
@@ -73,21 +73,6 @@ npm run build
 
 # Deploy to Firebase Hosting
 firebase deploy
-```
-
-## Firestore Rules
-
-For production, configure Firestore security rules appropriately. A basic permissive setup for testing:
-
-```javascript
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if true;
-    }
-  }
-}
 ```
 
 ## How It Works

@@ -18,6 +18,7 @@ export function PayWithZec({ recipientAddress, recipientName, amount, memo, onSe
   const [showQr, setShowQr] = useState(false);
 
   const zcashUri = buildZcashUri(recipientAddress, amount, memo);
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
   const handleCopy = async (text: string, field: CopiedField) => {
     try {
@@ -33,15 +34,17 @@ export function PayWithZec({ recipientAddress, recipientName, amount, memo, onSe
 
   return (
     <div className="space-y-3">
-      <button
-        onClick={handleOpenWallet}
-        className="w-full flex items-center justify-center gap-2.5 bg-zec-gold text-bg-primary font-bold py-3 rounded-xl text-sm hover:bg-zec-gold-dim transition-colors active:scale-[0.98]"
-      >
-        <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 110-6h5.25A2.25 2.25 0 0121 6m0 6v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18V6a2.25 2.25 0 012.25-2.25h13.5" />
-        </svg>
-        Open ZEC Wallet
-      </button>
+      {isMobile && (
+        <button
+          onClick={handleOpenWallet}
+          className="w-full flex items-center justify-center gap-2.5 bg-zec-gold text-bg-primary font-bold py-3 rounded-xl text-sm hover:bg-zec-gold-dim transition-colors active:scale-[0.98]"
+        >
+          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 110-6h5.25A2.25 2.25 0 0121 6m0 6v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18V6a2.25 2.25 0 012.25-2.25h13.5" />
+          </svg>
+          Open ZEC Wallet
+        </button>
+      )}
 
       <button
         onClick={() => setShowDetails(!showDetails)}
